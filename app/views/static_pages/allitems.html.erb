@@ -1,0 +1,44 @@
+<% provide(:title, "All Items") %>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-12">
+
+      <section class="allitem_form">
+        <%= render 'shared/allitem_form' %>
+      </section>
+    </aside>
+    <div class="col-md-12">
+    <h3>All Items (<%= current_user.allitems.count %>)</h3>
+      <ol class="help">
+    
+    <div class="row">
+      <div class="col-md-3"><h4>Item</h4></div>
+      <div class="col-md-3"><h4>Store</h4></div>
+      <div class="col-md-1"><div class="center-text"><h4>Amount</h4></div></div>
+      <div class="col-md-1"><div class="center-text"><h4>Zone</h4></div></div>
+      <div class="col-md-2"></div>
+      <div class="col-md-2"></div>
+    </div>
+     
+    
+      <%= render 'shared/feed_all_items' %>
+    </div>
+  </div>
+<% else %>
+<div class="center jumbotron">
+  <h1>Grocery Shopping Done Right</h1>
+
+  <h2>
+
+            
+    Never write another list.  Get through stores quick.
+    <%= link_to "Learn More.", help_path %>
+  </h2>
+
+  <%= link_to "Let's Do This", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+
+
+<% end %>

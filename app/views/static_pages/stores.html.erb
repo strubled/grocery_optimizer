@@ -1,0 +1,40 @@
+<% provide(:title, "All Items") %>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-12">
+
+      <section class="store_form">
+        <%= render 'shared/store_form' %>
+      </section>
+    </aside>
+    <div class="col-md-9">
+    <h3>Stores</h3>
+      <ol class="weekslist">
+          <li>
+    <div class="row">
+       <div class="col-md-3"><h5>Store</h5></div>
+       <div class="col-md-2"><h5>Delete</h5></div>
+    </div>
+     
+    </li>
+      <%= render 'shared/feed_stores' %>
+    </div>
+  </div>
+<% else %>
+<div class="center jumbotron">
+  <h1>Grocery Shopping Done Right</h1>
+
+  <h2>
+
+            
+    Never write another list.  Get through stores quick.
+    <%= link_to "Learn More.", help_path %>
+  </h2>
+
+  <%= link_to "Let's Do This", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+
+
+<% end %>

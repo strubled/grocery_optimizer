@@ -1,0 +1,17 @@
+<%= form_for(@store) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="row">
+    <div class="col-md-2">
+ 
+  			<%= f.label :store, 'Store' %>:
+  
+    		<%= f.text_field :store, placeholder: "Trader Joe's" %>
+    </div>
+  	<div class="col-md-2">
+   </br>
+
+  	<%= f.submit "Save Store", class: "btn btn-primary" %>
+  	</div>
+  </div>
+<% end %>

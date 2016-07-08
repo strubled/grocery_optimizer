@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
+  has_many :weekslists, dependent: :destroy
+  has_many :allitems, dependent: :destroy
+  has_many :stores, dependent: :destroy
   before_save   :downcase_email
   before_create :create_activation_digest
 	validates :name, presence: true, length: {maximum: 50}
@@ -15,7 +18,17 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+  def feed
+    Weekslist.where("user_id = ?", id)
+  end
 
+  def feed_all_items
+    Allitem.where("user_id = ?", id)
+  end
+
+  def feed_stores
+    Store.where("user_id = ?", id)
+  end
     # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64

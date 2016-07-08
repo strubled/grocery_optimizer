@@ -1,6 +1,28 @@
 class StaticPagesController < ApplicationController
   def home
+  	    @weekslist = current_user.weekslists.build if logged_in?
+  	    @feed_items = current_user.feed.order(:bought, store: :asc, zone: :asc) if logged_in?
+        @store = Store.all if logged_in?
+        @weekslist_all = Weekslist.all if logged_in?
   end
+
+  def destroy_all
+    Weekslist.destroy_all
+    flash[:success] = "Your week's list has been deleted"
+    redirect_to request.referrer || root_url
+  end
+
+  def allitems
+    @allitem = current_user.allitems.build if logged_in?
+    @feed_all_items = current_user.feed_all_items.order(:store, zone: :asc) if logged_in?
+    @store = Store.all if logged_in?
+  end
+
+  def stores
+    @store = current_user.stores.build if logged_in?
+    @feed_stores = current_user.feed_stores.order(:store) if logged_in?
+  end
+
 
   def help
   end

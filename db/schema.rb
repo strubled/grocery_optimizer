@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614004055) do
+ActiveRecord::Schema.define(version: 20160706013459) do
+
+  create_table "allitems", force: :cascade do |t|
+    t.text     "thing"
+    t.text     "zone"
+    t.text     "store"
+    t.text     "amount"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "allitems", ["user_id", "created_at"], name: "index_allitems_on_user_id_and_created_at"
+  add_index "allitems", ["user_id"], name: "index_allitems_on_user_id"
+
+  create_table "stores", force: :cascade do |t|
+    t.text     "store"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "stores", ["user_id", "created_at"], name: "index_stores_on_user_id_and_created_at"
+  add_index "stores", ["user_id"], name: "index_stores_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -29,5 +52,19 @@ ActiveRecord::Schema.define(version: 20160614004055) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "weekslists", force: :cascade do |t|
+    t.text     "thing"
+    t.text     "zone"
+    t.text     "store"
+    t.text     "amount"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "bought",     default: false
+  end
+
+  add_index "weekslists", ["user_id", "created_at"], name: "index_weekslists_on_user_id_and_created_at"
+  add_index "weekslists", ["user_id"], name: "index_weekslists_on_user_id"
 
 end

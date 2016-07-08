@@ -1,0 +1,25 @@
+<%= form_for(@allitem) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="row">
+    <div class="col-md-2">
+ 
+  			<%= f.label :thing, 'Item' %>:
+  
+    		<%= f.text_field :thing, placeholder: "Apples" %>
+    </div>
+ 
+    <div class="col-md-2">
+	    <%= f.label :store, 'Store' %>:
+	    <%= f.text_field  :store, placeholder: "Whole Foods" %>
+  </div>
+    <div class="col-md-1">
+	    <%= f.label :zone, 'Zone' %>:
+	    <%= f.text_field  :zone, placeholder: "1" %>
+  	</div>
+  	<div class="col-md-1">
+  	</br>
+  	<%= f.submit "Post", class: "btn btn-primary" %>
+  	</div>
+  </div>
+<% end %>

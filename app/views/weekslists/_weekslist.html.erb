@@ -1,0 +1,59 @@
+
+
+
+<ul class="weekslist">
+    <li>
+    <div class="row">
+      <div class="col-md-3"><%= weekslist.thing %></div>
+	  <div class="col-md-3"><%= weekslist.store %></div>
+      <div class="col-md-1"><div class="center-text"><%= weekslist.amount %></div></div>
+      <div class="col-md-1"><div class="center-text"><%= weekslist.zone %></div></div>
+      <div class="col-md-2">
+      	<% if current_user?(weekslist.user) %>	
+      		<% if weekslist.bought == false %>
+
+      		  <%= form_for weekslist do |f| %>
+    					<%= f.hidden_field :bought, value: false %>
+    					<%= f.submit 'Buy' , class: "btn btn-primary"%>
+
+  					<% end %>
+			<% else %>
+
+  					<%= form_for weekslist do |f| %>
+    					<%= f.hidden_field :bought, value: true %>
+    					<%= f.submit 'Done' , class: "btn btn-success active"%>
+
+  					<% end %>
+			<% end %>
+
+
+      		<%# if weekslist.bought == false %>
+      			
+      			<%#= button_to "Bought", weekslist, action: :patch, class: "btn btn-primary"%> 
+      			<%#= link_to (@weekslist.bought ? "Yes" : "No"), flop_weekslist_path(@weekslist) %>
+      			<%#= form_for(@weekslist.update) do |f| %>
+      			
+  					<%#= form_for weekslist do |f| %>
+    					<%#= f.hidden_field :bought, value: true %>
+    					<%#= f.submit 'Buy' , class: "btn btn-primary"%>
+  					
+				
+			<% #end %>
+
+     		 	<%#= f.submit "Got It", class: "btn btn-primary" %>
+ 				<%# end %>
+      		<% #else %>
+      			  	
+      		
+
+      </div>
+       <div class="col-md-2">   
+      <%= button_to "Delete", weekslist, method: :delete,  class: "btn btn-danger" %> </div>
+   
+    </div>
+     
+    </li>
+
+</ul>
+
+<% end %>

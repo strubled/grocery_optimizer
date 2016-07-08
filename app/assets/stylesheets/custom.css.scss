@@ -9,6 +9,9 @@
 
 body {
   padding-top: 60px;
+  font-family:  'Oswald', sans-serif;
+  background-color: #FAF9F7;
+  color: #444;
 }
 
 section {
@@ -29,11 +32,16 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, label {
+font-family:  'Phosphate', sans-serif;
   line-height: 1;
 }
 
+label {
+  font-size: 1.1em;
+}
 h1 {
+  
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -41,6 +49,7 @@ h1 {
 }
 
 h2 {
+  font-family:  'Phosphate', sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -49,22 +58,45 @@ h2 {
   color: #777;
 }
 
+h3 {
+  font-family:  'Phosphate', sans-serif;
+  font-size: 3em;
+  
+  margin-left: 10px;
+  margin-bottom: 0px;
+  
+  font-weight: normal;
+  
+}
+
+h4 {
+    
+    font-family:  'Phosphate', sans-serif;
+    font-size: 1.3em;
+    padding: 0px 0 0 0;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
 
+.center-text {
+  text-align: center;
+}
+
 /* header */
 
 #logo {
+font-family:  'Phosphate', sans-serif;
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
+  font-size: 2.5em;
+  
   text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  
+  padding-top: 0px;
+  
 }
 
 #logo:hover {
@@ -117,11 +149,11 @@ footer ul li {
 
 aside {
   section.user_info {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   section {
     padding: 10px 0;
-    margin-top: 20px;
+    margin-top: 10px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -202,4 +234,111 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+/* microposts */
+
+.weekslist {
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+/* table */
+
+.table-border {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px;
+    background-color: white;
+     border-width: 1px;
+    border-color: #cccccc;
+    border-style: solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+table {
+    
+    width: 100%;
+    margin:0 auto;
+    clear:both;
+    border-collapse:separate;
+    border-spacing:0;
+
+
+}
+
+thead {
+    text-align: left;
+    background-color: #75A2F0;
+    color: #202124;
+    padding:10px 18px;
+    border-bottom:1px solid #111;
+    vertical-align: center;
+    text-align: center;
+}
+td {
+    padding:10px 18px;
+    vertical-align: center;
+    text-align: center;
+
+
+}
+
+/* help */
+
+.help {
+    background-color: white;
+    padding:  10px 10px 10px 10px;
+    border-width: 1px;
+    margin: 10px 0px 10px 0px;
+    border-color: #cccccc;
+    border-style: solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
 }
