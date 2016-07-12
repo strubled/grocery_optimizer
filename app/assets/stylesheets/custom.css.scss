@@ -20,7 +20,7 @@ div.content { display: none; }
 
 body {
   padding-top: 60px;
-  font-family:  'Oswald', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   background-color: #FAF9F7;
   color: #444;
 }
@@ -46,7 +46,7 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6, label {
-font-family:  'Phosphate', sans-serif;
+font-family:  'Helvetica Neue', sans-serif;
   line-height: 1;
 }
 
@@ -71,7 +71,7 @@ label {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
     font-size: 1.1em;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     line-height: 2;
     
   }
@@ -107,7 +107,7 @@ h1 {
 }
 
 h2 {
-  font-family:  'Phosphate', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -117,7 +117,7 @@ h2 {
 }
 
 h3 {
-  font-family:  'Phosphate', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 3em;
   
   margin-left: 10px;
@@ -129,13 +129,13 @@ h3 {
 
 h4 {
     
-    font-family:  'Phosphate', sans-serif;
+    font-family:  'Helvetica Neue', sans-serif;
     font-size: 1.3em;
     padding: 0px 0 0 0;
 }
 
 h5 {
-  font-family:  'Phosphate', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
   
   margin-left: -100px;
@@ -146,7 +146,7 @@ h5 {
 }
 
 #logo {
-font-family:  'Phosphate', sans-serif;
+font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
   font-size: 2.5em;
@@ -186,9 +186,25 @@ font-family:  'Phosphate', sans-serif;
     border-style: solid;
   }
 
+  .hideshowweekslist {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-size: 1em;
+  
+  margin-left: -25px;
+  margin-top: 35px;
+  margin-bottom: 0px;
+  text-align: left;
+  font-weight: normal;
+  
+}
+
 }
 
 @media (max-width: 768px) { 
+
+#topnav {
+  font-size: .9em;
+}
 .weekslist {
 
   list-style: none;
@@ -197,7 +213,7 @@ font-family:  'Phosphate', sans-serif;
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
     
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     
     
   }
@@ -234,7 +250,7 @@ h1 {
 }
 
 h2 {
-  font-family:  'Phosphate', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -244,7 +260,7 @@ h2 {
 }
 
 h3 {
-  font-family:  'Phosphate', sans-serif;
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 2em;
   margin-left: 0px;
   margin-bottom: 0px;
@@ -254,17 +270,17 @@ h3 {
 
 h4 {
     
-    font-family:  'Phosphate', sans-serif;
+    font-family:  'Helvetica Neue', sans-serif;
     font-size: 1em;
     padding: 0px 0 0 0;
 }
 
-h5 {
-  font-family:  'Phosphate', sans-serif;
+.hideshowweekslist {
+  font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
   
-  margin-left: -50px;
-  margin-top: 28px;
+  margin-left: -25px;
+  margin-top: 25px;
   margin-bottom: 0px;
   text-align: left;
   font-weight: normal;
@@ -276,7 +292,7 @@ body {
 }
 
 #logo {
-font-family:  'Phosphate', 'Oswald', sans-serif;
+font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
   margin-left: 10px;
