@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "djlbpps@gmail.com"
+  default from: "Grocery Optimizer"
   layout 'mailer'
 end
