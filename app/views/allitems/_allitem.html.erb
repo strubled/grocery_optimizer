@@ -6,27 +6,32 @@
 
     <li>
     <div class="row">
-      <div class="col-md-3"><%= allitem.thing %></div>
-	  <div class="col-md-3"><%= allitem.store %></div>
-      <div class="col-md-1"><div class="center-text"><%= allitem.zone %></div></div>
-      <div class="col-md-1"><div class="center-text"><%= allitem.amount %></div></div>
-      <div class="col-md-2"> 
+      <div class="col-md-3 col-xs-3"><%= allitem.thing %></div>
+	  <div class="col-md-3 col-xs-2"><%= allitem.store %></div>
+      
+      <div class="col-md-1 col-xs-1"><div class="center-text"><%= allitem.amount %></div></div>
+      <div class="col-md-1 col-xs-2"><div class="center-text"><%= allitem.zone %></div></div>
+      <div class="col-md-2 col-xs-2"> 
       			  	
       		<% if current_user?(allitem.user) %>
 
             <%= form_for allitem do |f| %>
               
-              <%= f.submit "Add to Week's List" , action: 'create_from_existing', method: :post, class: "btn btn-primary"%>
+               <%= button_tag(class: "btn btn-success btn-responsive") do %>
+              <span class="glyphicon glyphicon-plus"></span>
+             <% end %>
 
             <% end %>
-            <% end %>
             </div>
-       <div class="col-md-2">   
-      <%= button_to "Delete", allitem, method: :delete,  class: "btn btn-danger" %> </div>
-    
+       <div class="col-md-2 col-xs-2">   
+      
+            <%= button_to  allitem, method: :delete,  type: "button", class: "btn btn-danger btn-responsive" do %>
+            <i class="glyphicon glyphicon-remove-circle"></i>
+        <% end %> 
+        </div>
     </div>
      
     </li>
   
 </ul>
-
+<% end %>

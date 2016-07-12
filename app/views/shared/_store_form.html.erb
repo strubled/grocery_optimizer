@@ -1,6 +1,7 @@
 <%= form_for(@store) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
+  <h3>Add a New Store</h3>
+<div class="help">
   <div class="row">
     <div class="col-md-2">
  
@@ -13,5 +14,6 @@
 
   	<%= f.submit "Save Store", class: "btn btn-primary" %>
   	</div>
+  </div>
   </div>
 <% end %>

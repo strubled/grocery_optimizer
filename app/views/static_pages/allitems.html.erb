@@ -1,24 +1,23 @@
 <% provide(:title, "All Items") %>
 
 <% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-12">
 
-      <section class="allitem_form">
         <%= render 'shared/allitem_form' %>
-      </section>
-    </aside>
+<div class="row"> 
     <div class="col-md-12">
     <h3>All Items (<%= current_user.allitems.count %>)</h3>
-      <ol class="help">
+    </div>
+    </div>
+
+  <div class="help">
     
     <div class="row">
-      <div class="col-md-3"><h4>Item</h4></div>
-      <div class="col-md-3"><h4>Store</h4></div>
-      <div class="col-md-1"><div class="center-text"><h4>Amount</h4></div></div>
-      <div class="col-md-1"><div class="center-text"><h4>Zone</h4></div></div>
-      <div class="col-md-2"></div>
-      <div class="col-md-2"></div>
+      <div class="col-md-3 col-xs-3"><h4>Item</h4></div>
+      <div class="col-md-2 col-xs-2"><h4>Store</h4></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>#</h4></div></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>Zone</h4></div></div>
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
     </div>
      
     

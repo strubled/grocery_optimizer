@@ -15,3 +15,9 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+jQuery(document).ready(function(){
+        jQuery('#hideshow').on('click', function(event) {        
+             jQuery('#content').toggle('show');
+        });
+    });

@@ -2,10 +2,10 @@
   <div class="container">
     <%= link_to "Grocery Optimizer", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul id="topnav" class="nav nav-pills navbar-right">
   
         <% if logged_in? %>
-        <li><%= link_to "Week's List", root_path %></li>
+        <li><%= link_to "The List", root_path %></li>
                   <li><%= link_to "All Items", allitems_path %></li>
         <li><%= link_to "Stores", stores_path %></li>
           <li class="dropdown">
