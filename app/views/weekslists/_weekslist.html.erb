@@ -30,7 +30,7 @@
 			   <% end %>
          </div>
         <div class="col-md-2 col-xs-2">
-        <%= button_to  weekslist, method: :delete,  type: "button", class: "btn btn-danger btn-responsive" do %>
+        <%= button_to  weekslist, method: :delete,  type: "button", class: "btn btn-danger btn-responsive", data: {confirm: "Are you sure you want to delete this?"} do %>
             <i class="glyphicon glyphicon-remove-circle"></i>
         <% end %> 
         </div>

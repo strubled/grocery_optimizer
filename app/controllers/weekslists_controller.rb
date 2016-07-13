@@ -7,7 +7,7 @@ before_action :correct_user,   only: [:update, :destroy]
     @weekslist = current_user.weekslists.build(weekslist_params)
     @allitem = current_user.allitems.build(weekslist_params)
     if @allitem.save  && @weekslist.save
-      flash[:success] = "Item saved!"
+      flash[:success] = "Saved " + @weekslist.thing + " to the list!"
       redirect_to root_url
     else
       @feed_items = []
@@ -24,11 +24,11 @@ before_action :correct_user,   only: [:update, :destroy]
     @weekslist = Weekslist.find(params[:id])
     if @weekslist.bought == true
         @weekslist.update(bought: false)
-        flash[:warning] = "Whoops, back on the list"
+        flash[:warning] = "Whoops, " + @weekslist.thing + " back on the list"
         redirect_to request.referrer || root_url  
     else 
       @weekslist.update(bought: true)
-      flash[:success] = "Nice, one down!"
+      flash[:success] = "Nice, " + @weekslist.thing + " is off the list!"
       redirect_to request.referrer || root_url 
       end
 
@@ -36,7 +36,7 @@ before_action :correct_user,   only: [:update, :destroy]
 
   def destroy
   	@weekslist.destroy
-    flash[:success] = "Item deleted"
+    flash[:success] = "Deleted " + @weekslist.thing + " from the list."
     redirect_to request.referrer || root_url
   end
 
