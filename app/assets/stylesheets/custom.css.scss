@@ -2,7 +2,15 @@
 @import "bootstrap";
 
 
-div.content { display: none; }
+.logo {
+  margin: -5px 0 -80px 0;
+  width: 40%;
+  float: left;
+  margin-right: 0px;
+
+  
+  padding-top: 0px;
+}
 
 #topnav {
   margin-top: 10px;
@@ -10,6 +18,7 @@ div.content { display: none; }
 
 #clearList {
   margin-top: 80px;
+  margin-left: -10px;
 
 }
 @mixin box_sizing {
@@ -60,8 +69,19 @@ h5 {
 label {
   font-size: 1.1em;
 }
+/* desktop */
 
 @media (min-width: 768px) { 
+
+  .logo {
+  margin: -15px 0px -80px -20px;
+  width: 40%;
+  float: left;
+  margin-right: 0px;
+
+  
+  padding-top: 0px;
+}
 
 .weekslist {
 
@@ -118,12 +138,12 @@ h2 {
 
 h3 {
   font-family:  'Helvetica Neue', sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   
   margin-left: 10px;
   margin-bottom: 0px;
   
-  font-weight: normal;
+  font-weight: bold;
   
 }
 
@@ -190,17 +210,207 @@ font-family:  'Helvetica Neue', sans-serif;
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
   
-  margin-left: -25px;
-  margin-top: 35px;
+  margin-left: -5px;
+  margin-top: 25px;
   margin-bottom: 0px;
   text-align: left;
   font-weight: normal;
   
 }
 
+.hideshowweekslist { display:none; }
+
+}
+/* small tablet */
+
+@media (min-width: 768px) and (max-width: 992px) { 
+
+.logo {
+  margin: -5px 0 -80px 0;
+  width: 50%;
+  float: left;
+  margin-right: 0px;
+
+  
+  padding-top: 0px;
+}
+.btn-responsive {
+    padding:2px 35px;
+    margin-left: 0px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
+
+  }
+/* tablet */
+
+@media (min-width: 992px) and (max-width: 1200px) { 
+
+.logo {
+  margin: -15px 0 -80px -20px;
+  width: 50%;
+  float: left;
+  margin-right: 0px;
+
+  
+  padding-top: 0px;
+}
+.weekslist {
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    font-size: 1.1em;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 2;
+    
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+h1 {
+  
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
+h2 {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+h3 {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-size: 2em;
+  
+  margin-left: 10px;
+  margin-bottom: 0px;
+  
+  font-weight: bold;
+  
+}
+
+h4 {
+    
+    font-family:  'Helvetica Neue', sans-serif;
+    font-size: 1.3em;
+    padding: 0px 0 0 0;
+}
+
+h5 {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-size: 1em;
+  
+  margin-left: -100px;
+  margin-top: 35px;
+  
+  font-weight: normal;
+  
+}
+
+/*#logo {
+font-family:  'Helvetica Neue', sans-serif;
+  float: left;
+  margin-right: 0px;
+  font-size: 2.5em;
+  
+  text-transform: uppercase;
+  
+  padding-top: 0px;
+  
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}*/
+
+/* help */
+
+.help {
+    background-color: white;
+    padding:  10px 20px 10px 20px;
+    border-width: 1px;
+    margin: 10px 0px 10px 0px;
+    border-color: #cccccc;
+    border-style: solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+}
+
+  .btn-responsive {
+    padding:2px 60px;
+    margin-left: 30px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
+
+  .hideshowweekslist {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-size: 1em;
+  
+  margin-left: -5px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+  text-align: left;
+  font-weight: normal;
+  
+}
+
+.hideshowweekslist { display:none; }
+
+}
+
+/* mobile */
+
 @media (max-width: 768px) { 
+
+#content { display: none; }
+
+.logo {
+  margin: -5px 0 -20px 0;
+  width: 100%;
+  float: left;
+  margin-right: 0px;
+
+  
+  padding-top: 0px;
+}
 
 #topnav {
   font-size: .9em;
@@ -261,10 +471,10 @@ h2 {
 
 h3 {
   font-family:  'Helvetica Neue', sans-serif;
-  font-size: 2em;
+  font-size: 1.7em;
   margin-left: 0px;
   margin-bottom: 0px;
-  font-weight: normal;
+  font-weight: bold;
   
 }
 
@@ -277,18 +487,18 @@ h4 {
 
 .hideshowweekslist {
   font-family:  'Helvetica Neue', sans-serif;
-  font-size: 1em;
   
-  margin-left: -25px;
-  margin-top: 25px;
+  
+  margin-left: 25px;
+  margin-top: 20px;
   margin-bottom: 0px;
   text-align: left;
-  font-weight: normal;
+  
   
 }
 
 body { 
-    padding-top: 90px; 
+    padding-top: 80px; 
 }
 
 #logo {

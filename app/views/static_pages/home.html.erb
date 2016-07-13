@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-2 col-xs-4">   
     <div class="hideshowweekslist">    
-        <a id='hideshow' class='hideshow'>+/- Add Item</a>
+        <a id='hideshow' class="btn btn-primary btn-sm" role="button">+/- Add Item</a>
     </div>
    </div>
    </div>
@@ -33,7 +33,7 @@
       <%= render 'shared/feed' %>
     </div>
  
-    <div id="clearList" class="col-md-2">  
+    <div id="clearList" class="col-md-2 col-xs-6">  
 
     <%= button_to "Clear Your List", destroy_all_weekslists_path, :method => :post, class: "btn btn-danger", data: {confirm: "Are you sure you want to wipe out your whole list?"} %>
 
