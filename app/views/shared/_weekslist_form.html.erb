@@ -4,33 +4,33 @@
   <%= render 'shared/error_messages', object: f.object %>
 <h3>Add to Week's List</h3>
   <div class="help">
-  <div class="row">
-    <div class="col-md-3 ">
+    <div class="row">
+      <div class="col-md-3 ">
+   
+    			<%= f.label :thing, 'Item' %>:
+    
+      		<%= f.text_field :thing, placeholder: "Apples" %>
+      </div>
  
-  			<%= f.label :thing, 'Item' %>:
-  
-    		<%= f.text_field :thing, placeholder: "Apples" %>
-    </div>
- 
-    <div class="col-md-3">
-      <%= f.label :store, 'Store' %>:
-      <% options = options_from_collection_for_select(@store, 'store', 'store') %>
-      <%= f.select :store,  options %>
-  </div>
-    <div class="col-md-2 col-xs-6">
-      <%= f.label :zone, 'Zone' %>:
-      
-      <%= f.select :zone,  [1, 2, 3, 4, 5, 6] %>
-    </div>
-        <div class="col-md-2 col-xs-6">
+      <div class="col-md-3">
+        <%= f.label :store, 'Store' %>:
+        <% options = options_from_collection_for_select(@store, 'store', 'store') %>
+        <%= f.select :store,  options %>
+      </div>
+      <div class="col-md-2 ">
+        <%= f.label :zone, 'Zone' %>:
+        
+        <%= f.select :zone,  [1, 2, 3, 4, 5, 6] %>
+      </div>
+        <div class="col-md-2">
       <%= f.label :amount, 'Amount' %>:
        <%= f.select :amount,  [1, 2, 3, 4, 5, 6, 7, 8, 9] %>
+        </div>
+    	<div class="col-md-2">
+    	</br>
+    	<%= f.submit "Add Item", class: "btn btn-primary" %>
+    	</div>
     </div>
-  	<div class="col-md-2">
-  	</br>
-  	<%= f.submit "Add Item", class: "btn btn-primary" %>
-  	</div>
   </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
