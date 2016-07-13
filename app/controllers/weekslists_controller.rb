@@ -5,7 +5,8 @@ before_action :correct_user,   only: [:update, :destroy]
   def create
   	
     @weekslist = current_user.weekslists.build(weekslist_params)
-    if @weekslist.save
+    @allitem = current_user.allitems.build(weekslist_params)
+    if @allitem.save  && @weekslist.save
       flash[:success] = "Item saved!"
       redirect_to root_url
     else
