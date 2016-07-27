@@ -9,7 +9,10 @@
 	    <div class="col-md-2 col-xs-2"><%= weekslist.store %></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.amount %></div></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.zone %></div></div>
-      <div class="col-md-1 col-xs-1">         <%= link_to "Edit", edit_weekslist_path(weekslist.id)  %>
+      <div class="col-md-1 col-xs-1">       
+              <%= button_to  edit_weekslist_path(weekslist.id), type: "button", class: "btn btn-primary btn-responsive-edit" do %>
+            <i class="glyphicon glyphicon-cog"></i>
+        <% end %> 
         
 
         </div>
