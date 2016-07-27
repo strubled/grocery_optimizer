@@ -1,6 +1,6 @@
 class WeekslistsController < ApplicationController
 before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :destroy_all]
-before_action :correct_user,   only: [:update, :destroy]
+before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
 
   def create
   	
@@ -17,20 +17,43 @@ before_action :correct_user,   only: [:update, :destroy]
 
   def edit
     @weekslist = Weekslist.find(params[:id])
+    @store = Store.all if logged_in?
   end
+
+  def bought
+
+
+
+  end  
 
   def update
     
     @weekslist = Weekslist.find(params[:id])
-    if @weekslist.bought == true
-        @weekslist.update(bought: false)
-        flash[:warning] = "Whoops, " + @weekslist.thing + " back on the list"
-        redirect_to request.referrer || root_url  
-    else 
-      @weekslist.update(bought: true)
-      flash[:success] = "Nice, " + @weekslist.thing + " is off the list!"
-      redirect_to request.referrer || root_url 
+
+    @weekslist.assign_attributes(weekslist_params)
+    
+    if @weekslist.changed? == true
+    
+    if @weekslist.thing_changed? == true || @weekslist.store_changed? == true || @weekslist.zone_changed? == true || @weekslist.amount_changed? == true
+      @weekslist.update(weekslist_params)
+          flash[:success] = @weekslist.thing + " has been updated" 
+          redirect_to root_url 
+  
+    else
+      @weekslist.update(weekslist_params)
+      if @weekslist.bought == false
+        flash[:success] = @weekslist.thing + " is back on the list"
+        redirect_to root_url
+      else
+        flash[:success] = @weekslist.thing + " is off the list!"
+        redirect_to root_url
       end
+ 
+     end 
+   else
+    flash[:success] = "No changes were made"
+        redirect_to root_url
+   end
 
   end
 

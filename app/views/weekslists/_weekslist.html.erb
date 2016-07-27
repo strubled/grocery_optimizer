@@ -1,28 +1,35 @@
 
 
-
+<%# on button press, toggle visibility of div.  in one div, show labels, in another div, show the form%>
 <ul  class="weekslist">
     <li>
     <div class="row">
     
-      <div class="col-md-3 col-xs-3"><%= weekslist.thing %></div>
+      <div class="col-md-3 col-xs-2"><%= weekslist.thing %></div>
 	    <div class="col-md-2 col-xs-2"><%= weekslist.store %></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.amount %></div></div>
-      <div class="col-md-1 col-xs-2"><div class="center-text"><%= weekslist.zone %></div></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.zone %></div></div>
+      <div class="col-md-1 col-xs-1">         <%= link_to "Edit", edit_weekslist_path(weekslist.id)  %>
+        
+
+        </div>
+
       <div class="col-md-2 col-xs-2">
         
       	 <% if current_user?(weekslist.user) %>	
       		<% if weekslist.bought == false %>
-      		  <%= form_for weekslist do |f| %>
-    					<%= f.hidden_field :bought, value: false %>
-    					<%#= f.submit 'Buy' , type: "button", class: "btn btn-primary"%>
-              <%= button_tag(class: "btn btn-warning btn-responsive") do %>
+
+              <%= form_for weekslist do |f| %>
+              <%= f.hidden_field :bought, value: true %>
+               <%= button_tag(class: "btn btn-warning btn-responsive") do %>
               <span class="glyphicon glyphicon-thumbs-up"></span>
-  					 <% end %>
-            <% end %>
+          
+        <% end %> 
+      		 <% end %>  
+           
 			   <% else %>
   					<%= form_for weekslist do |f| %>
-    					<%= f.hidden_field :bought, value: true %>
+    					<%= f.hidden_field :bought, value: false %>
                <%= button_tag(class: "btn btn-success btn-responsive") do %>
               <span class="glyphicon glyphicon-ok"></span>
              <% end %>

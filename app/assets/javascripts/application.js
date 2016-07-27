@@ -17,7 +17,15 @@
 //= require_tree .
 
 jQuery(document).ready(function(){
-        jQuery('#hideshow').on('click', function(event) {        
-             jQuery('#content').toggle('show');
+        jQuery('#hideeditweekslist').on('click', function(event) {        
+             jQuery('#labels').toggle('show');
+             jQuery('#editweekslist').toggle('show');
+        });
+    });
+
+jQuery(document).ready(function(){
+        jQuery('#hidelabels').on('click', function(event) {        
+             jQuery('#editweekslist').toggle('show');
+             jQuery('#labels').toggle('show');
         });
     });

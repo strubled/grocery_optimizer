@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   	    @weekslist = current_user.weekslists.build if logged_in?
+        
   	    @feed_items = current_user.feed.order(:bought, store: :asc, zone: :asc) if logged_in?
         @store = Store.all if logged_in?
         @weekslist_all = Weekslist.all if logged_in?

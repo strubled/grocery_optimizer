@@ -3,10 +3,18 @@ Rails.application.routes.draw do
 
   get 'password_resets/edit'
 
+  get 'weekslists/edit'
+
   get 'sessions/new'
   resources :weekslists do
     member do
-        get :update
+        get :bought
+    end
+  end
+
+    resources :weekslists do
+    collection do
+        get :bought
     end
   end
 
@@ -29,7 +37,8 @@ end
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :weekslists,   only: [:create, :edit, :update, :destroy, :destroy_all]
+  resources :weekslists,   only: [:create, :bought, :edit, :update, :destroy, :destroy_all]
+  
   resources :allitems,   only: [:create, :edit, :update, :destroy]
   resources :stores,   only: [:create, :edit, :update, :destroy]
  

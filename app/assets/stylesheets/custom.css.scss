@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#editweekslist { display:none; }
+
+
 
 .logo {
   margin: -5px 0 -80px 0;
@@ -199,7 +202,7 @@ font-family:  'Helvetica Neue', sans-serif;
 
   .btn-responsive {
     padding:2px 80px;
-    margin-left: 30px;
+    margin-left: -35px;
     font-size:100%;
     line-height: 2;
         border-color: #cccccc;
@@ -235,7 +238,7 @@ font-family:  'Helvetica Neue', sans-serif;
   padding-top: 0px;
 }
 .btn-responsive {
-    padding:2px 35px;
+    padding:2px 25px;
     margin-left: 0px;
     font-size:100%;
     line-height: 2;
@@ -373,7 +376,7 @@ font-family:  'Helvetica Neue', sans-serif;
 
   .btn-responsive {
     padding:2px 60px;
-    margin-left: 30px;
+    margin-left: -10px;
     font-size:100%;
     line-height: 2;
         border-color: #cccccc;
@@ -413,7 +416,7 @@ font-family:  'Helvetica Neue', sans-serif;
 }
 
 #topnav {
-  font-size: .9em;
+  font-size: .7em;
 }
 .weekslist {
 
@@ -424,7 +427,7 @@ font-family:  'Helvetica Neue', sans-serif;
     border-top: 1px solid #e8e8e8;
     
     font-family: 'Helvetica Neue', sans-serif;
-    
+    font-size: .7em
     
   }
   .user {
@@ -453,17 +456,17 @@ font-family:  'Helvetica Neue', sans-serif;
 
 h1 {
   
-  font-size: 3em;
+  font-size: 2.5em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 h2 {
   font-family:  'Helvetica Neue', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: normal;
   color: #777;
@@ -471,7 +474,7 @@ h2 {
 
 h3 {
   font-family:  'Helvetica Neue', sans-serif;
-  font-size: 1.7em;
+  font-size: 1.4em;
   margin-left: 0px;
   margin-bottom: 0px;
   font-weight: bold;
@@ -481,7 +484,7 @@ h3 {
 h4 {
     
     font-family:  'Helvetica Neue', sans-serif;
-    font-size: 1em;
+    font-size: .7em;
     padding: 0px 0 0 0;
 }
 
@@ -489,7 +492,7 @@ h4 {
   font-family:  'Helvetica Neue', sans-serif;
   
   
-  margin-left: 25px;
+  margin-left: 15px;
   margin-top: 20px;
   margin-bottom: 0px;
   text-align: left;
@@ -498,7 +501,7 @@ h4 {
 }
 
 body { 
-    padding-top: 80px; 
+    padding-top: 60px; 
 }
 
 #logo {
@@ -518,7 +521,7 @@ font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
 
 .help {
     background-color: white;
-    padding:  10px 10px 10px 10px;
+    padding:  5px 5px 5px 5px;
     border-width: 1px;
     margin: 5px -10px 5px -10px;
     border-color: #cccccc;
@@ -530,8 +533,8 @@ font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
 }
 
   .btn-responsive {
-    padding:2px 20px;
-    margin: 0px 0px 0px -20px;
+    padding:2px 15px;
+    margin: 0px 0px 0px 0px;
     font-size:100%;
     line-height: 2;
   }

@@ -20,7 +20,7 @@ class AllitemsController < ApplicationController
     @allitem = current_user.allitems.build(allitem_params)
   if self.allitem.exists?(allitem_params)
     # there is a record that exists with this number
-        flash[:warning] = "Sorry, we don't allow dupes!"
+        flash[:warning] = "Sorry, boss.  Can't add this one.  It's a dupe!"
         redirect_to root_url
   else
     # there are no records that exist with this number
