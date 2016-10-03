@@ -10,37 +10,36 @@ before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
       flash[:success] = "Saved " + @weekslist.thing + " to the list!"
       redirect_to root_url
     else
-      @feed_items = []
-      render 'static_pages/home'
+      flash[:danger] = "Can't be empty and can't save duplicates"
+      redirect_to root_url
     end
   end
 
   def edit
     @weekslist = Weekslist.find(params[:id])
+    @allitems = Weekslist.find(params[:id])
     @store = Store.all if logged_in?
-  end
-
-  def bought
-
-
-
-  end  
+  end 
 
   def update
     
     @weekslist = Weekslist.find(params[:id])
-
+    @allitems = Allitem.find(params[:id])
     @weekslist.assign_attributes(weekslist_params)
     
     if @weekslist.changed? == true
     
-    if @weekslist.thing_changed? == true || @weekslist.store_changed? == true || @weekslist.zone_changed? == true || @weekslist.amount_changed? == true
-      @weekslist.update(weekslist_params)
+      if @weekslist.thing_changed? == true || @weekslist.store_changed? == true || @weekslist.zone_changed? == true || @weekslist.amount_changed? == true
+      
+      if @weekslist.update(weekslist_params) && @allitems.update(weekslist_params)
           flash[:success] = @weekslist.thing + " has been updated" 
           redirect_to root_url 
-  
-    else
-      @weekslist.update(weekslist_params)
+      else 
+        flash[:danger] = "Can't be empty and can't save duplicates"
+        redirect_to root_url
+    end
+      else
+        @weekslist.update(weekslist_params)
       if @weekslist.bought == false
         flash[:success] = @weekslist.thing + " is back on the list"
         redirect_to root_url
@@ -65,7 +64,14 @@ before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
 
   def destroy_all
     Weekslist.where(["user_id = ?", current_user]).destroy_all
+    Allitem.where(["user_id = ?", current_user]).update_all(onweekslist: false)
     flash[:success] = "Your week's list has been deleted"
+    redirect_to request.referrer || root_url
+  end
+
+    def unbuy_all
+    Weekslist.where(["user_id = ?", current_user]).update_all(bought: false)
+    flash[:success] = "You just unbought everything"
     redirect_to request.referrer || root_url
   end
 
@@ -73,7 +79,7 @@ before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
   private
 
     def weekslist_params
-      params.require(:weekslist).permit(:thing, :store, :zone, :amount, :bought)
+      params.require(:weekslist).permit(:thing, :store, :zone, :amount, :bought, :onweekslist)
     end
 
 

@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
   	    @weekslist = current_user.weekslists.build if logged_in?
-        
   	    @feed_items = current_user.feed.order(:bought, store: :asc, zone: :asc) if logged_in?
         @store = Store.all if logged_in?
         @weekslist_all = Weekslist.all if logged_in?
@@ -13,9 +12,23 @@ class StaticPagesController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def unbuy_all
+    Weekslist.where(["user_id = ?", current_user]).update_all(bought: false)
+    flash[:success] = "You just unbought everything"
+    redirect_to request.referrer || root_url
+  end
+
+
   def allitems
     @allitem = current_user.allitems.build if logged_in?
-    @feed_all_items = current_user.feed_all_items.order(:store, zone: :asc) if logged_in?
+    @weekslist = current_user.weekslists.build if logged_in?
+    if params[:search]
+      @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, zone: :asc) if logged_in?
+    else
+      @feed_all_items = current_user.feed_all_items.order(:store, zone: :asc) if logged_in?
+
+    end
+
     @store = Store.all if logged_in?
   end
 

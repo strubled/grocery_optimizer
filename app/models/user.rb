@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
     Allitem.where("user_id = ?", id)
   end
 
+def self.search(search)
+  Allitem.where("thing ILIKE ? ", "%#{search}%") 
+end
+
+
   def feed_stores
     Store.where("user_id = ?", id)
   end

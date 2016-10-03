@@ -29,3 +29,6 @@ jQuery(document).ready(function(){
              jQuery('#labels').toggle('show');
         });
     });
+
+$("#alert").html("<%= flash[:success] %>");
+

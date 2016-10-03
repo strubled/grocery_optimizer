@@ -1,6 +1,6 @@
 class AllitemsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-	before_action :correct_user,   only: [:update, :destroy]
+	before_action :logged_in_user, only: [:create, :edit, :search, :update, :destroy]
+	before_action :correct_user,   only: [:update, :search, :destroy]
   
   
 
@@ -8,11 +8,11 @@ class AllitemsController < ApplicationController
   	
     @allitem = current_user.allitems.build(allitem_params)
     if @allitem.save
-      flash[:success] = "Item saved!"
-      redirect_to request.referrer || root_url
+      flash[:success] = "Saved " + @allitem.thing + " to the list!"
+            redirect_to request.referrer || root_url
     else
-      @feed_all_items = []
-      render 'static_pages/allitems'
+     flash[:danger] = "Can't be empty and can't save duplicates"
+     redirect_to request.referrer || root_url
     end
   end
 
@@ -33,16 +33,38 @@ end
 
 
   def update
-      @existing_post = Allitem.find(params[:id])
+
+    @allitem = Allitem.find(params[:id])
+    @allitem.assign_attributes(allitem_params)  
+
+    if @allitem.changed? == true
+    if @allitem.thing_changed? == true || @allitem.store_changed? == true || @allitem.zone_changed? == true || @allitem.amount_changed? == true
+      @allitem.update(allitem_params)
+    
+          flash[:success] = @allitem.thing + " has been updated" 
+          redirect_to request.referrer || root_url
+  
+      else
+        
+        @allitem.update(allitem_params)
+
+        
       #create new object with attributes of existing record 
-      @weekslist = Weekslist.new(@existing_post.attributes)
+        @weekslist = Weekslist.new(@allitem.attributes)
+
       if @weekslist.save 
+
         flash[:success] = "Item added to this Week's List!"
         redirect_to request.referrer || root_url
-    else
-      @feed_items = []
-      redirect_to request.referrer || root_url
-    end
+
+      end
+ 
+     end 
+   else
+    flash[:success] = "No changes were made"
+        redirect_to root_url
+   end
+
   end
 
   def destroy
@@ -56,7 +78,7 @@ end
   private
 
     def allitem_params
-      params.require(:allitem).permit(:thing, :store, :zone, :amount)
+      params.require(:allitem).permit(:thing, :store, :zone, :amount, :onweekslist)
     end
 
 

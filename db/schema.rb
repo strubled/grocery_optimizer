@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706013459) do
+ActiveRecord::Schema.define(version: 20161003003814) do
 
   create_table "allitems", force: :cascade do |t|
     t.text     "thing"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20160706013459) do
     t.text     "store"
     t.text     "amount"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "onweekslist", default: false
   end
 
   add_index "allitems", ["user_id", "created_at"], name: "index_allitems_on_user_id_and_created_at"
@@ -59,9 +60,10 @@ ActiveRecord::Schema.define(version: 20160706013459) do
     t.text     "store"
     t.text     "amount"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "bought",     default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "bought",      default: false
+    t.boolean  "onweekslist", default: false
   end
 
   add_index "weekslists", ["user_id", "created_at"], name: "index_weekslists_on_user_id_and_created_at"

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :weekslists do
+  resources :weekslists do
     collection do
         get :bought
     end
@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   resources :weekslists do
   collection do
     post 'destroy_all'
+  end
+end
+
+  resources :weekslists do
+  collection do
+    post 'unbuy_all'
   end
 end
   get 'users/new'
@@ -37,9 +43,9 @@ end
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :weekslists,   only: [:create, :bought, :edit, :update, :destroy, :destroy_all]
+  resources :weekslists,   only: [:create, :bought, :edit, :update, :destroy, :destroy_all, :unbuy_all]
   
-  resources :allitems,   only: [:create, :edit, :update, :destroy]
+  resources :allitems,   only: [:create, :edit, :search, :update, :destroy]
   resources :stores,   only: [:create, :edit, :update, :destroy]
  
 
