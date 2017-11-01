@@ -43,9 +43,9 @@ class StaticPagesController < ApplicationController
     @weekslist = current_user.weekslists.build if logged_in?
     @store = Store.all if logged_in?
     if params[:search]
-      @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, :zone, thing: :asc) if logged_in?
+      @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, thing: :asc) if logged_in?
     else
-      @feed_all_items = current_user.feed_all_items.order(:store, :zone, thing: :asc) if logged_in?
+      @feed_all_items = current_user.feed_all_items.order(:store, thing: :asc) if logged_in?
 
     end
 
