@@ -1,0 +1,54 @@
+
+<h3>Add a Bunch of Items to Your List</h3>
+
+<!--<div class="help">
+    
+    <div class="row">
+      <div class="col-md-3 col-xs-2"><h4>Item</h4></div>
+      <div class="col-md-2 col-xs-2"><h4>Store</h4></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>#</h4></div></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>Zone</h4></div></div>
+      <div class="col-md-1 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
+    </div>
+     
+
+    
+      <%= render 'shared/feed_all_items' %>
+    </div>
+  </div>-->
+
+<!--  type out how the all items page is doing the feed_all_items view -->
+
+<!-- start at allitems (static pages), call render 'shared/feed_all_items' which goes to render @feed_all_items
+  which is in the model (skips the static controller?) def feed_all_items Allitem.where("user_id = ?", id) which presumably
+  then returns the information on _allitem.html.erb
+
+
+type out how the weekslist page is doing the feed_weekslist view -->
+
+<!-- start at home.  call render shared_feed
+  shared/_feed is calling shared/feed_items
+  feed_items is in the static controller and calls current_user.feed.order(:bought, store: :asc, zone: :asc) if logged_in? 
+  that is in the model which has 'feed' in the model as Weekslist.where("user_id = ?", id) which returns the items back to 
+  i'm guessing the _weekslist.html.erb page.  why...i have no idea.  -->
+ 
+
+<!-- we are trying to get the feed of information and then present it in the bulk_adds view.  
+
+  create a view folder for "bulkadds" with one file in it for _addbulk.html.erb
+
+  process: start at bulkadds.html.erb, call render 'shared/feed_all_items' which goes to render @feed_all_items
+  which is in the model (skips the static controller?) def feed_all_items Allitem.where("user_id = ?", id) which presumably
+  then returns the information on _allitem.html.erb
+
+<%= form_for (@weekslist), url: {action: "bulkadds"}, html: {class: "nifty_form"} do |f| %>
+<div class="row">
+<%= check_box_tag(:thing) %>
+<%= label_tag(:thing, allitem.thing) %>
+</div>
+<%= f.submit "Create" %>
+
+
+<% end %>

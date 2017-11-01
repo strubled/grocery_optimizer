@@ -1,0 +1,26 @@
+<% provide(:title, "Add Bulk") %>
+
+<% if logged_in? %>
+
+    <% if @feed_all_items.any? %>
+     
+      <ol class="bulkadds">
+        <%= render :partial => '/bulkadds/bulkadd', locals: {allitem: @feed_all_items} %> <!-- pass in the model stuff here -->
+      </ol>
+      
+    <% end %>
+
+<% else %>
+<div class="center jumbotron">
+  <h1>Grocery Shopping Done Right</h1>
+
+  <h2>
+
+    Never write another list.  Get through stores quick.
+    <%= link_to "Learn More.", help_path %>
+  </h2>
+
+  <%= link_to "Let's Do This", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<% end %>

@@ -1,0 +1,2 @@
+module BulkaddsHelper
+end

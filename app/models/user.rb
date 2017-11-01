@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     Allitem.where("user_id = ?", id)
   end
 
+  def feed_bulkadds
+    Allitem.where("user_id = ?", id)
+  end
+
 def self.search(search)
   Allitem.where("thing ILIKE ? ", "%#{search}%") 
 end

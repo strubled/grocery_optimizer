@@ -1,6 +1,6 @@
 class WeekslistsController < ApplicationController
-before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :destroy_all]
-before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
+before_action :logged_in_user, only: [:create, :edit, :bulkadd, :update, :destroy, :destroy_all]
+before_action :correct_user,   only: [:update, :edit, :bulkadd, :bought, :destroy]
 
   def create
   	
@@ -14,6 +14,18 @@ before_action :correct_user,   only: [:update, :edit, :bought, :destroy]
       redirect_to root_url
     end
   end
+
+  def bulkadd
+    @weekslist = current_user.weekslists.build(weekslist_params)
+    if @weekslist.save
+      flash[:success] = "Saved " + @weekslist.thing + " to the list!"
+      redirect_to root_url
+    else
+      flash[:danger] = "Can't be empty and can't save duplicates"
+      redirect_to root_url
+    end
+  end
+
 
   def edit
     @weekslist = Weekslist.find(params[:id])

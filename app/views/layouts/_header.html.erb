@@ -9,9 +9,10 @@
   
         <% if logged_in? %>
         <li><%= link_to "The List", root_path %></li>
-                  <li><%= link_to "All Items", allitems_path %></li>
+        <li><%= link_to "Add Bulk", bulkadds_path %></li>
+        <li><%= link_to "All Items", allitems_path %></li>
         <li><%= link_to "Stores", stores_path %></li>
-          <li class="dropdown">
+        <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
@@ -23,7 +24,7 @@
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
             </ul>
-          </li>
+        </li>
         <% else %>
           
           
