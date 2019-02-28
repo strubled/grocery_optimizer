@@ -4,49 +4,46 @@
 <ul class="weekslist">
     <li>
     <div class="row">
-      <div class="col-md-3 col-xs-2"><%= allitem.thing %></div>
+      <div class="col-md-3 col-xs-2"><%= link_to allitem.thing, edit_allitem_path(allitem.id)%></div>
 	    <div class="col-md-2 col-xs-2"><%= allitem.store %></div>
-      
+
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= allitem.amount %></div></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= allitem.zone %></div></div>
-      <div class="col-md-1 col-xs-1">       
+      <% if false %>
+      <div class="col-md-1 col-xs-1">
           <%= link_to  edit_allitem_path(allitem.id), type: "button", class: "btn btn-primary btn-responsive-edit" do %>
             <i class="glyphicon glyphicon-cog"></i>
           <% end %> </div>
-
+<% end %>
             <div class="col-md-2 col-xs-2">
-        
-         <% if current_user?(allitem.user) %> 
+
+         <% if current_user?(allitem.user) %>
           <% if allitem.onweekslist == false %>
 
-              <%= form_for allitem, remote: true do |f| %>
+              <%= form_for allitem do |f| %>
               <%= f.hidden_field :onweekslist, value: true %>
-               <%= button_tag(class: "btn btn-success btn-responsive") do %>
+               <%= button_tag(class: "btn btn-success btn-responsive1") do %>
               <span class="glyphicon glyphicon-plus"></span>
-          
-        <% end %> 
-           <% end %>  
-           
+
+        <% end %>
+           <% end %>
+
          <% else %>
-            
-              
-               <%= button_tag(class: "btn btn-secondary btn-responsive") do %>
+               <%= button_tag(class: "btn btn-secondary btn-responsive1") do %>
               <span class="glyphicon glyphicon-ok"></span>
              <% end %>
-             
+
          <% end %>
          </div>
-       <div class="col-md-2 col-xs-1">   
-      
-            <%= button_to  allitem, method: :delete,  type: "button", class: "btn btn-danger btn-responsive" do %>
+       <div class="col-md-2 col-xs-1">
+
+            <%= button_to  allitem, method: :delete,  type: "button", class: "btn btn-danger btn-responsive-delete1" do %>
             <i class="glyphicon glyphicon-remove-circle"></i>
-        <% end %> 
+        <% end %>
         </div>
     </div>
-     
+
     </li>
-  
+
 </ul>
 <% end %>
-
-

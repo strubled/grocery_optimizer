@@ -7,15 +7,15 @@
     <div class="col-md-12">
     <h3>All Items (<%= current_user.allitems.count %>)</h3>
     </div>
-    </div>
+</div>
 
   <div class="help">
-    
+
     <div class="row">
       <div class="col-md-3 col-xs-3">
-      
+
         <%= form_tag(allitems_path, :method => "get") do %>
-        
+
         <%= label :thing, 'Store' %>:
         <%= select_tag :search, options_from_collection_for_select(Store.all, "store", "store") %>
       </div>
@@ -43,7 +43,7 @@
   </div>
 
   <div class="help">
-    
+
     <div class="row">
       <div class="col-md-3 col-xs-2"><h4>Item</h4></div>
       <div class="col-md-2 col-xs-2"><h4>Store</h4></div>
@@ -53,8 +53,8 @@
       <div class="col-md-2 col-xs-1"></div>
       <div class="col-md-2 col-xs-1"></div>
     </div>
-     
-    
+
+
       <%= render 'shared/feed_all_items' %>
     </div>
   </div>
@@ -64,7 +64,7 @@
 
   <h2>
 
-            
+
     Never write another list.  Get through stores quick.
     <%= link_to "Learn More.", help_path %>
   </h2>

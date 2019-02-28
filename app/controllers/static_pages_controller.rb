@@ -2,11 +2,17 @@ class StaticPagesController < ApplicationController
   def home
   	    @weekslist = current_user.weekslists.build if logged_in?
   	    @feed_items = current_user.feed.order(:bought, store: :asc, zone: :asc) if logged_in?
-        
         @feed_bulkadds = current_user.feed_bulkadds.order(store: :asc, zone: :asc) if logged_in?
         @store = Store.all if logged_in?
         @weekslist_all = Weekslist.all if logged_in?
         @allitem = current_user.allitems.build if logged_in?
+        @bulkadd = current_user.allitems.build if logged_in?
+        if params[:search]
+          @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, thing: :asc) if logged_in?
+        else
+          @feed_all_items = current_user.feed_all_items.order(:store, thing: :asc) if logged_in?
+
+        end
   end
 
   def destroy_all
@@ -21,24 +27,23 @@ class StaticPagesController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def bulkadds # this stuff just allows you to show things on the page
-    
-    @bulkadds = current_user.allitems.build if logged_in?
+  def allitems
+    @bulkadd = current_user.allitems.build if logged_in?
     @allitem = current_user.allitems.build if logged_in?
     @weekslist = current_user.weekslists.build if logged_in?
     @store = Store.all if logged_in?
     if params[:search]
-      @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, zone: :asc) if logged_in?
+      @feed_all_items = current_user.feed_all_items.search(params[:search]).order(:store, thing: :asc) if logged_in?
     else
-      @feed_all_items = current_user.feed_all_items.order(:store, zone: :asc) if logged_in?
+      @feed_all_items = current_user.feed_all_items.order(:store, thing: :asc) if logged_in?
 
     end
 
     @store = Store.all if logged_in?
-  end 
+  end
 
-  def allitems
-    @bulkadds = current_user.allitems.build if logged_in?
+  def bulkadds
+    @bulkadd = current_user.allitems.build if logged_in?
     @allitem = current_user.allitems.build if logged_in?
     @weekslist = current_user.weekslists.build if logged_in?
     @store = Store.all if logged_in?

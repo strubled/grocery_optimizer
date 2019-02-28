@@ -7,7 +7,7 @@
   float: left;
   margin-right: 0px;
 
-  
+
   padding-top: 0px;
 }
 
@@ -15,10 +15,27 @@
   margin-top: 10px;
 }
 
+.borderforweekslist {
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+  font-size: 1.1em;
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 2;
+}
 #clearList {
-  margin-top: 80px;
+  width: 150px;
+  margin-left: 170px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+#moveformfields {
+  margin-left: -15px;
+}
+#btn-add {
+  width: 170px;
+  line-height: 3;
   margin-left: -10px;
-
+  margin-top: 20px;
 }
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -32,7 +49,33 @@ body {
   background-color: #FAF9F7;
   color: #444;
 }
+body, html {
+  margin: 0;
+}
 
+.contents {
+  height: 100vh;
+  display: flex;
+  max-width: 1920px;
+  width: 100%;
+}
+
+.left, .right {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+}
+.right {
+  border-left: 1px solid;
+  padding-left: 20px;
+
+}
+.left {
+  padding-right: 20px;
+}
+.inner {
+  height: 1000px;
+}
 
 
 section {
@@ -70,7 +113,7 @@ label {
 }
 /* desktop */
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
 
   .logo {
   margin: -15px 0px -80px -20px;
@@ -78,21 +121,24 @@ label {
   float: left;
   margin-right: 0px;
 
-  
+
   padding-top: 0px;
 }
 
+.spacetoenter {
+  padding-top: 30px;
+}
 .weekslist {
 
   list-style: none;
-  padding: 0;
+  padding: 0px;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
     font-size: 1.1em;
     font-family: 'Helvetica Neue', sans-serif;
     line-height: 2;
-    
+
   }
   .user {
     margin-top: 5em;
@@ -117,8 +163,16 @@ label {
     margin-top: 5px;
   }
 }
+
+p {
+  font-family:  'Helvetica Neue', sans-serif;
+  margin-left: 10px;
+  margin-bottom: 0px;
+
+
+}
 h1 {
-  
+
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -138,16 +192,16 @@ h2 {
 h3 {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 2em;
-  
+
   margin-left: 10px;
   margin-bottom: 0px;
-  
+
   font-weight: bold;
-  
+
 }
 
 h4 {
-    
+
     font-family:  'Helvetica Neue', sans-serif;
     font-size: 1.3em;
     padding: 0px 0 0 0;
@@ -156,12 +210,12 @@ h4 {
 h5 {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
-  
+
   margin-left: -100px;
   margin-top: 35px;
-  
+
   font-weight: normal;
-  
+
 }
 
 #logo {
@@ -169,11 +223,11 @@ font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
   font-size: 2.5em;
-  
+
   text-transform: uppercase;
-  
+
   padding-top: 0px;
-  
+
 }
 
 #logo:hover {
@@ -197,17 +251,41 @@ font-family:  'Helvetica Neue', sans-serif;
 }
 
   .btn-responsive {
-    padding:2px 80px;
-    margin-left: -25px;
+    padding:2px 60px;
+    margin-left: -30px;
     font-size:100%;
     line-height: 2;
         border-color: #cccccc;
     border-style: solid;
   }
 
+  .btn-responsive1 {
+    padding:2px 60px;
+    margin-left: 10px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
+  .btn-responsive-delete {
+    padding:2px 5px;
+    margin-left: 30px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
+  .btn-responsive-delete1 {
+    padding:2px 5px;
+    margin-left: 70px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
     .btn-responsive-edit {
-    padding:2px 20px;
-    margin-left: -15px;
+    padding:2px 10px;
+    margin-left: 5px;
     font-size:100%;
     line-height: 2;
         border-color: #cccccc;
@@ -217,20 +295,20 @@ font-family:  'Helvetica Neue', sans-serif;
   .hideshowweekslist {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
-  
+
   margin-left: -5px;
   margin-top: 25px;
   margin-bottom: 0px;
   text-align: left;
   font-weight: normal;
-  
+
 }
 
 
 }
 /* small tablet */
 
-@media (min-width: 768px) and (max-width: 992px) { 
+@media (min-width: 768px) and (max-width: 992px) {
 
 .logo {
   margin: -5px 0 -80px 0;
@@ -238,7 +316,7 @@ font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
 
-  
+
   padding-top: 0px;
 }
 .btn-responsive {
@@ -253,7 +331,35 @@ font-family:  'Helvetica Neue', sans-serif;
   }
 /* tablet */
 
-@media (min-width: 992px) and (max-width: 1200px) { 
+@media (min-width: 992px) and (max-width: 1200px) {
+  .contents {
+    height: auto;
+    display: grid;
+    max-width: 1920px;
+    width: 100%;
+  }
+
+  .left, .right {
+    flex: none;
+    overflow: auto;
+    padding: 0px;
+  }
+  .right {
+    border-left: 0px solid;
+    padding-left: 0px;
+  }
+  .left {
+    padding-right: 0px;
+  }
+  .inner {
+  height: auto;
+  }
+  #clearList {
+    width: 150px;
+    margin-left: 400px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
 
 .logo {
   margin: -15px 0 -80px -20px;
@@ -261,7 +367,7 @@ font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
 
-  
+
   padding-top: 0px;
 }
 .weekslist {
@@ -274,7 +380,7 @@ font-family:  'Helvetica Neue', sans-serif;
     font-size: 1.1em;
     font-family: 'Helvetica Neue', sans-serif;
     line-height: 2;
-    
+
   }
   .user {
     margin-top: 5em;
@@ -300,7 +406,7 @@ font-family:  'Helvetica Neue', sans-serif;
   }
 }
 h1 {
-  
+
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -320,16 +426,16 @@ h2 {
 h3 {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 2em;
-  
+
   margin-left: 10px;
   margin-bottom: 0px;
-  
+
   font-weight: bold;
-  
+
 }
 
 h4 {
-    
+
     font-family:  'Helvetica Neue', sans-serif;
     font-size: 1.3em;
     padding: 0px 0 0 0;
@@ -338,12 +444,12 @@ h4 {
 h5 {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
-  
+
   margin-left: -100px;
   margin-top: 35px;
-  
+
   font-weight: normal;
-  
+
 }
 
 /*#logo {
@@ -351,11 +457,11 @@ font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
   font-size: 2.5em;
-  
+
   text-transform: uppercase;
-  
+
   padding-top: 0px;
-  
+
 }
 
 #logo:hover {
@@ -390,13 +496,13 @@ font-family:  'Helvetica Neue', sans-serif;
   .hideshowweekslist {
   font-family:  'Helvetica Neue', sans-serif;
   font-size: 1em;
-  
+
   margin-left: -5px;
   margin-top: 25px;
   margin-bottom: 0px;
   text-align: left;
   font-weight: normal;
-  
+
 }
 
 
@@ -404,9 +510,39 @@ font-family:  'Helvetica Neue', sans-serif;
 
 /* iphone6 */
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 
 #content { display: none; }
+
+.contents {
+  height: auto;
+  display: grid;
+  max-width: 1920px;
+  width: 100%;
+}
+
+.left, .right {
+  flex: none;
+  overflow: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.right {
+  border-left: 0px solid;
+  padding-left: 10px;
+}
+.left {
+  padding-right: 10px;
+}
+.inner {
+height: auto;
+}
+#clearList {
+  width: 150px;
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
 
 .logo {
   margin: -5px 0 -20px 0;
@@ -414,7 +550,7 @@ font-family:  'Helvetica Neue', sans-serif;
   float: left;
   margin-right: 0px;
 
-  
+
   padding-top: 0px;
 }
 
@@ -428,10 +564,10 @@ font-family:  'Helvetica Neue', sans-serif;
   li {
     padding: 10px 0px;
     border-top: 1px solid #e8e8e8;
-    
+
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 1em
-    
+
   }
   .user {
     margin-top: 5em;
@@ -458,7 +594,7 @@ font-family:  'Helvetica Neue', sans-serif;
 }
 
 h1 {
-  
+
   font-size: 2.5em;
   letter-spacing: -2px;
   margin-bottom: 20px;
@@ -481,11 +617,11 @@ h3 {
   margin-left: 0px;
   margin-bottom: 0px;
   font-weight: bold;
-  
+
 }
 
 h4 {
-    
+
     font-family:  'Helvetica Neue', sans-serif;
     font-size: 1em;
     padding: 0px 0 0 0;
@@ -493,18 +629,18 @@ h4 {
 
 .hideshowweekslist {
   font-family:  'Helvetica Neue', sans-serif;
-  
-  
+
+
   margin-left: 15px;
   margin-top: 20px;
   margin-bottom: 0px;
   text-align: left;
-  
-  
+
+
 }
 
-body { 
-    padding-top: 80px; 
+body {
+    padding-top: 80px;
 }
 
 #logo {
@@ -513,11 +649,11 @@ font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
   margin-right: 0px;
   margin-left: 10px;
   font-size: 2em;
-  
+
   text-transform: uppercase;
-  
+
   padding-top: 0px;
-  
+
 }
 
 /* help */
@@ -542,9 +678,26 @@ font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
     line-height: 2;
   }
 
+  .btn-responsive1 {
+    padding:2px 40px;
+    margin-left: 10px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
       .btn-responsive-edit {
     padding:2px 5px;
     margin-left: -3px;
+    font-size:100%;
+    line-height: 2;
+        border-color: #cccccc;
+    border-style: solid;
+  }
+
+  .btn-responsive-delete1 {
+    padding:2px 5px;
+    margin-left: 70px;
     font-size:100%;
     line-height: 2;
         border-color: #cccccc;
@@ -554,161 +707,198 @@ font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
 
 /* iphone5s */
 
-@media (max-width: 321px) { 
+@media (max-width: 321px) {
 
-#content { display: none; }
 
-.logo {
-  margin: -5px 0 -20px 0;
-  width: 100%;
-  float: left;
-  margin-right: 0px;
-
-  
-  padding-top: 0px;
-}
-
-#topnav {
-  font-size: .7em;
-}
-.weekslist {
-
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0px;
-    border-top: 1px solid #e8e8e8;
-    
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: .8em
-    
+  .contents {
+    height: auto;
+    display: grid;
+    max-width: 1920px;
+    width: 100%;
   }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
+
+  .left, .right {
+    flex: none;
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
+  .right {
+    border-left: 0px solid;
+    padding-left: 10px;
+  }
+  .left {
+    padding-right: 10px;
+  }
+  .inner {
+  height: auto;
+  }
+  #clearList {
+    width: 150px;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .logo {
+    margin: -5px 0 -20px 0;
+    width: 100%;
+    float: left;
+    margin-right: 0px;
+
+
+    padding-top: 0px;
+  }
+
+  #topnav {
+    font-size: 1em;
+  }
+  .weekslist {
+
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 10px 0px;
+      border-top: 1px solid #e8e8e8;
+
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 1em
+
+    }
+    .user {
+      margin-top: 5em;
+      padding-top: 0;
+    }
+    .content {
       display: block;
-      padding: 5px 0;
+      margin-left: 60px;
+      img {
+        display: block;
+        padding: 5px 0;
+      }
+    }
+    .timestamp {
+      color: $gray-light;
+      display: block;
+      margin-left: 60px;
+    }
+    .gravatar {
+      float: left;
+      margin-right: 10px;
+      margin-top: 5px;
     }
   }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
+
+  h1 {
+
+    font-size: 2.5em;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    text-align: center;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
 
-h1 {
-  
-  font-size: 2.5em;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h2 {
-  font-family:  'Helvetica Neue', sans-serif;
-  font-size: 1.1em;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-h3 {
-  font-family:  'Helvetica Neue', sans-serif;
-  font-size: 1.4em;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  font-weight: bold;
-  
-}
-
-h4 {
-    
+  h2 {
     font-family:  'Helvetica Neue', sans-serif;
-    font-size: .8em;
-    padding: 0px 0 0 0;
-}
-
-.hideshowweekslist {
-  font-family:  'Helvetica Neue', sans-serif;
-  
-  
-  margin-left: 15px;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  text-align: left;
-  
-  
-}
-
-body { 
-    padding-top: 70px; 
-}
-
-#logo {
-font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
-  float: left;
-  margin-right: 0px;
-  margin-left: 10px;
-  font-size: 2em;
-  
-  text-transform: uppercase;
-  
-  padding-top: 0px;
-  
-}
-
-/* help */
-
-.help {
-    background-color: white;
-    padding:  5px 5px 5px 5px;
-    border-width: 1px;
-    margin: 5px -10px 5px -10px;
-    border-color: #cccccc;
-    border-style: solid;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-}
-
-  .btn-responsive {
-    padding:2px 18px;
-    margin-left: -5px;
-    font-size:100%;
-    line-height: 2;
+    font-size: 1.1em;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    color: #777;
   }
 
-      .btn-responsive-edit {
-    padding:2px 5px;
-    margin-left: -3px;
-    font-size:100%;
-    line-height: 2;
-        border-color: #cccccc;
-    border-style: solid;
-  }
-}
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
+  h3 {
+    font-family:  'Helvetica Neue', sans-serif;
+    font-size: 1.4em;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
 
-.center-text {
-  text-align: center;
-}
+  }
+
+  h4 {
+
+      font-family:  'Helvetica Neue', sans-serif;
+      font-size: 1em;
+      padding: 0px 0 0 0;
+  }
+
+  .hideshowweekslist {
+    font-family:  'Helvetica Neue', sans-serif;
+
+
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: left;
+
+
+  }
+
+  body {
+      padding-top: 80px;
+  }
+
+  #logo {
+  font-family:  'Helvetica Neue', 'Helvetica Neue', sans-serif;
+    float: left;
+    margin-right: 0px;
+    margin-left: 10px;
+    font-size: 2em;
+
+    text-transform: uppercase;
+
+    padding-top: 0px;
+
+  }
+
+  /* help */
+
+  .help {
+      background-color: white;
+      padding:  5px 5px 5px 5px;
+      border-width: 1px;
+      margin: 5px -10px 5px -10px;
+      border-color: #cccccc;
+      border-style: solid;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+
+  }
+
+    .btn-responsive {
+      padding:2px 20px;
+      margin-left: 0px;
+      font-size:100%;
+      line-height: 2;
+    }
+
+    .btn-responsive1 {
+      padding:2px 40px;
+      margin-left: 10px;
+      font-size:100%;
+      line-height: 2;
+          border-color: #cccccc;
+      border-style: solid;
+    }
+        .btn-responsive-edit {
+      padding:2px 5px;
+      margin-left: -3px;
+      font-size:100%;
+      line-height: 2;
+          border-color: #cccccc;
+      border-style: solid;
+    }
+
+    .btn-responsive-delete1 {
+      padding:2px 5px;
+      margin-left: 70px;
+      font-size:100%;
+      line-height: 2;
+          border-color: #cccccc;
+      border-style: solid;
+    }
 
 /* header */
 
@@ -883,7 +1073,7 @@ span.picture {
     -webkit-border-radius: 5px;
 }
 table {
-    
+
     width: 100%;
     margin:0 auto;
     clear:both;
@@ -909,4 +1099,3 @@ td {
 
 
 }
-

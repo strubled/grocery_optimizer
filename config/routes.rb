@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
 
-
   get 'password_resets/new'
-
   get 'password_resets/edit'
-
   get 'weekslists/edit'
-
-  get 'weekslists/bulkadds'
-
   get 'sessions/new'
   resources :weekslists do
     member do
@@ -21,13 +15,6 @@ Rails.application.routes.draw do
         get :bought
     end
   end
-
-  resources :weekslists do 
-    collection do
-      post 'bulkadd'
-    end
-  end
-
   resources :weekslists do
   collection do
     post 'destroy_all'
@@ -55,9 +42,10 @@ end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :weekslists,   only: [:create, :bought, :edit, :bulkadd, :update, :destroy, :destroy_all, :unbuy_all]
+  resources :bulkadd,   only: [:create, :bought, :edit, :bulkadd, :update, :destroy, :destroy_all, :unbuy_all]
   resources :allitems,   only: [:create, :edit, :search, :update, :destroy]
   resources :stores,   only: [:create, :edit, :update, :destroy]
- 
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

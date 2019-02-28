@@ -1,23 +1,21 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%#= link_to "Grocery Optimizer", src="assets/GO-logo2.png", root_path, id: "logo" %>
-     
+
       <%= image_tag("GO-logo2.png", class: "logo img-responsive", id:"logo") %>
- 
+
     <nav>
       <ul id="topnav" class="nav nav-pills navbar-right">
-  
+
         <% if logged_in? %>
         <li><%= link_to "The List", root_path %></li>
-        
-        <li><%= link_to "All Items", allitems_path %></li>
         <li><%= link_to "Stores", stores_path %></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              
+
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
@@ -26,8 +24,8 @@
             </ul>
         </li>
         <% else %>
-          
-          
+
+
           <li><%= link_to "About", help_path %></li>
           <li><%= link_to "Sign in", login_path %></li>
         <% end %>

@@ -6,32 +6,33 @@
     <li>
 
     <div class="row">
-    
-      <div class="col-md-3 col-xs-2"><%= weekslist.thing %></div>
+
+      <div class="col-md-3 col-xs-2"><%= link_to weekslist.thing, edit_weekslist_path(weekslist.id)%></div>
 	    <div class="col-md-2 col-xs-2"><%= weekslist.store %></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.amount %></div></div>
       <div class="col-md-1 col-xs-1"><div class="center-text"><%= weekslist.zone %></div></div>
-      <div class="col-md-1 col-xs-1">       
-              <%= link_to  edit_weekslist_path(weekslist.id), type: "button", class: "btn btn-primary btn-responsive-edit" do %>
+      <div class="col-md-1 col-xs-1">
+              <% if false %><%= link_to  edit_weekslist_path(weekslist.id), type: "button", class: "btn btn-primary btn-responsive-edit" do %>
             <i class="glyphicon glyphicon-cog"></i>
-        <% end %> 
-        
+        <% end %>
+        <%end%>
+
 
         </div>
 
       <div class="col-md-2 col-xs-2">
-        
-      	 <% if current_user?(weekslist.user) %>	
+
+      	 <% if current_user?(weekslist.user) %>
       		<% if weekslist.bought == false %>
 
               <%= form_for weekslist do |f| %>
               <%= f.hidden_field :bought, value: true %>
                <%= button_tag(class: "btn btn-warning btn-responsive") do %>
               <span class="glyphicon glyphicon-thumbs-up"></span>
-          
-        <% end %> 
-      		 <% end %>  
-           
+
+        <% end %>
+      		 <% end %>
+
 			   <% else %>
   					<%= form_for weekslist do |f| %>
     					<%= f.hidden_field :bought, value: false %>
@@ -42,13 +43,13 @@
 			   <% end %>
          </div>
         <div class="col-md-2 col-xs-2">
-        <%= button_to  weekslist, method: :delete,  type: "button", class: "btn btn-danger btn-responsive", data: {confirm: "Are you sure you want to delete this?"} do %>
+        <%= button_to  weekslist, method: :delete,  type: "button", class: "btn btn-danger btn-responsive-delete", data: {confirm: "Are you sure you want to delete this?"} do %>
             <i class="glyphicon glyphicon-remove-circle"></i>
-        <% end %> 
+        <% end %>
         </div>
-      
+
       </div>
-     
+
     </li>
 
 </ul>

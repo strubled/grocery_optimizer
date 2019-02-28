@@ -1,20 +1,35 @@
-<% provide(:title, "Add Bulk") %>
+<% provide(:title, "Bulk Add") %>
 
 <% if logged_in? %>
 
-    <% if @feed_all_items.any? %>
-     
-      <ol class="bulkadds">
-        <%= render :partial => '/bulkadds/bulkadd', locals: {allitem: @feed_all_items} %> <!-- pass in the model stuff here -->
-      </ol>
-      
-    <% end %>
+<div class="row">
+    <div class="col-md-12">
+    <h3>Bulk Add</h3>
+    <p>Add lots of things at once to this week's list</p>
+    </div>
+</div>
+  <div class="help">
 
+    <div class="row">
+      <div class="col-md-3 col-xs-2"><h4>Item</h4></div>
+      <div class="col-md-2 col-xs-2"><h4>Store</h4></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>#</h4></div></div>
+      <div class="col-md-1 col-xs-1"><div class="center-text"><h4>Zone</h4></div></div>
+      <div class="col-md-1 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
+    </div>
+
+
+      <%= render 'shared/feed_bulk_add' %>
+    </div>
+  </div>
 <% else %>
 <div class="center jumbotron">
   <h1>Grocery Shopping Done Right</h1>
 
   <h2>
+
 
     Never write another list.  Get through stores quick.
     <%= link_to "Learn More.", help_path %>
@@ -22,5 +37,7 @@
 
   <%= link_to "Let's Do This", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+
+
 
 <% end %>

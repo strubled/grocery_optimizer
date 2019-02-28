@@ -1,11 +1,12 @@
 class AllitemsController < ApplicationController
+	respond_to :js, :html, :json
 	before_action :logged_in_user, only: [:create, :edit, :search, :update, :destroy]
 	before_action :correct_user,   only: [:update, :search, :destroy]
-  
-  
+
+
 
   def create
-  	
+
     @allitem = current_user.allitems.build(allitem_params)
     if @allitem.save
       flash[:success] = "Saved " + @allitem.thing + " to the list!"
@@ -35,31 +36,24 @@ end
   def update
 
     @allitem = Allitem.find(params[:id])
-    @allitem.assign_attributes(allitem_params)  
+    @allitem.assign_attributes(allitem_params)
 
     if @allitem.changed? == true
     if @allitem.thing_changed? == true || @allitem.store_changed? == true || @allitem.zone_changed? == true || @allitem.amount_changed? == true
       @allitem.update(allitem_params)
-    
-          flash[:success] = @allitem.thing + " has been updated" 
+          flash[:success] = @allitem.thing + " has been updated"
           redirect_to request.referrer || root_url
-  
       else
-        
         @allitem.update(allitem_params)
-
-        
-      #create new object with attributes of existing record 
+      #create new object with attributes of existing record
         @weekslist = Weekslist.new(@allitem.attributes)
-
-      if @weekslist.save 
-
+      if @weekslist.save
         flash[:success] = "Item added to this Week's List!"
-        redirect_to request.referrer || root_url
+        redirect_to root_path
 
       end
- 
-     end 
+
+     end
    else
     flash[:success] = "No changes were made"
         redirect_to root_url
@@ -87,4 +81,3 @@ end
       redirect_to root_url if @allitem.nil?
     end
 end
-
