@@ -1,5 +1,4 @@
 class AllitemsController < ApplicationController
-	respond_to :js, :html, :json
 	before_action :logged_in_user, only: [:create, :edit, :search, :update, :destroy]
 	before_action :correct_user,   only: [:update, :search, :destroy]
 
